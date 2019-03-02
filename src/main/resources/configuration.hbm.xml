@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/assignment</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+      <mapping class="com.healthEdge.Schoolmgmt.InternAssignment.Entity.Course"/>
+      <mapping class="com.healthEdge.Schoolmgmt.InternAssignment.Entity.OfferedBy"/>
+      <mapping class="com.healthEdge.Schoolmgmt.InternAssignment.Entity.Offers"/>
+      <mapping class="com.healthEdge.Schoolmgmt.InternAssignment.Entity.School"/>
+      <mapping class="com.healthEdge.Schoolmgmt.InternAssignment.Entity.SchoolSchoolContact"/>
+      <mapping class="com.healthEdge.Schoolmgmt.InternAssignment.Entity.Student"/>
+      <mapping class="com.healthEdge.Schoolmgmt.InternAssignment.Entity.StudentStudentContact"/>
+      <mapping class="com.healthEdge.Schoolmgmt.InternAssignment.Entity.Teacher"/>
+      <mapping class="com.healthEdge.Schoolmgmt.InternAssignment.Entity.TeacherTeacherContact"/>
+      <mapping class="com.healthEdge.Schoolmgmt.InternAssignment.Entity.Teaches"/>
+      <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>
