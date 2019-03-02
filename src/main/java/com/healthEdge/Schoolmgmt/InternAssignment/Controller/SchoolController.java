@@ -1,10 +1,13 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.Controller;
 
 
+import com.healthEdge.Schoolmgmt.InternAssignment.Entity.School;
+import com.sun.org.apache.xpath.internal.operations.String;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.Collection;
 
 @RestController
@@ -16,39 +19,42 @@ public class SchoolController {
     public Collection<School> getAllSchool() {
         return this.schoolService.getAllSchool();
     }
-    @RequestMapping(value="/{School_id}",method = RequestMethod.GET)
-    public School getSchoolById(@PathVariable=("School_id") int School_id)
+    @RequestMapping(value="/{schoolId}",method = RequestMethod.GET)
+    public School getSchoolById(@PathVariable=("schoolId") int schoolId)
     {
-       return this.schoolService.getSchoolById();
+       return this.schoolService.getSchoolById(schoolId);
     }
-    @RequestMapping(value="/{School_name}",method = RequestMethod.GET)
-    public School getSchoolByName(@PathVariable=("School_name") Striing School_name)
+    @RequestMapping(value="/{schoolName}",method = RequestMethod.GET)
+    public School getSchoolByName(@PathParam("schoolName") String schoolName)
     {
-        return this.schoolService.getSchoolByName();
+        return this.schoolService.getSchoolByName(schoolName);
     }
-    @RequestMapping(value="/{School_address}",method = RequestMethod.GET)
-    public School getSchoolByAddress(@PathVariable=("School_address") String School_address)
+    @RequestMapping(value="/{schoolAddress}",method = RequestMethod.GET)
+    public School getSchoolByAddress(@PathParam("schoolAddress") String schoolAddress)
     {
-        return this.schoolService.getSchoolByAddress();
+        return this.schoolService.getSchoolByAddress(schoolAddress);
     }
-    @RequestMapping(value="/{School_email}",method = RequestMethod.GET)
-    public School getSchoolByEmail(@PathVariable=("School_email") String School_email)
+    @RequestMapping(value="/{schoolEmail}",method = RequestMethod.GET)
+    public School getSchoolByEmail(@PathParam("schoolEmail") String schoolEmail)
     {
-        return this.schoolService.getSchoolByEmail();
+        return this.schoolService.getSchoolByEmail(schoolEmail);
     }
     @RequestMapping(value= "/{School_id}", method=@RequestMethod.DELETE)
-    public void RemoveSchoolById(@PathVariable=("School_id") int School_id)
+    public void DeleteSchoolById(@PathVariable=("School_id") int schoolId)
     {
-        this.schoolService.RemoveSchoolById(School_id);
+        this.schoolService.RemoveSchoolById(schoolId);
     }
-    @RequestMapping(value= "/{School_name}", method=@RequestMethod.DELETE)
-    public void RemoveSchoolByName(@PathVariable=("School_name") String School_name)
-    {
-        this.schoolService.RemoveSchoolByName(School_name);
+    @RequestMapping(value= "/{schoolName}", method=@RequestMethod.DELETE)
+    public void DeleteSchoolByName(@PathParam("schoolName") String schoolName){
+        this.schoolService.RemoveSchoolByName(schoolName);
     }
-    @RequestMapping(value="/{School_address}",method= RequestMethod.DELETE(School_adress))
-    public void RemoverSchoolByAddress(@PathVariable="School_address" String School_address){
-        this.schoolService.RemoveSchoolByAddress(School_address);
+    @RequestMapping(value="/{schoolAddress}", method= RequestMethod.DELETE)
+    public void DeleteSchoolByAddress(@PathParam("schoolAddress") String schoolAddress){
+        this.schoolService.RemoveSchoolByAddress(schoolAddress);
+    }
+    @RequestMapping(value="/{schoolEmail}",method=RequestMethod.DELETE)
+    public void DeleteSchoolByEmail(@PathParam("schoolEmail") String schoolEmail){
+        this.schoolService.RemoveSchoolByEmail(schoolEmail);
     }
     @RequestMapping(method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)//update
     public void UpdateSchoolById(@RequestBody School school)
