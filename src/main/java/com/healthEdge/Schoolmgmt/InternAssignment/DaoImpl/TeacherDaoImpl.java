@@ -2,10 +2,13 @@ package com.healthEdge.Schoolmgmt.InternAssignment.DaoImpl;
 
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.Teacher;
 import com.healthEdge.Schoolmgmt.InternAssignment.Repository.TeacherRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collection;
 
-public class TeacherDaoImpl {
+public class TeacherDaoImpl{
+
+    @Autowired
     TeacherRepository teacherRepository;
     public Collection<Teacher> GetAllTeachers() {
         return null;

@@ -3,10 +3,13 @@ package com.healthEdge.Schoolmgmt.InternAssignment.DaoImpl;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.School;
 import com.healthEdge.Schoolmgmt.InternAssignment.Repository.SchoolRepository;
 import com.sun.org.apache.xpath.internal.operations.String;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collection;
 
 public class SchoolDaoImpl {
+
+    @Autowired
     SchoolRepository schoolRepository;
     public Collection<School> getAllSchool() {
         return schoolRepository.findAll();

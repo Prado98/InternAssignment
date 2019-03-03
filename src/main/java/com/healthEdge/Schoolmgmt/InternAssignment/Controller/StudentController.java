@@ -15,7 +15,8 @@ import java.util.Collection;
 @RequestMapping("/Student")
 
 public class StudentController {
-    @Autowired
+
+
     private StudentDaoImpl studentDao;
     @RequestMapping(method= RequestMethod.GET)
     public Collection<Student> getAllStudents(){

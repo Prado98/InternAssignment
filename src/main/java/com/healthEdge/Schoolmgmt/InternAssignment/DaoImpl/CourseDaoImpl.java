@@ -2,6 +2,7 @@ package com.healthEdge.Schoolmgmt.InternAssignment.DaoImpl;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.Course;
 import com.healthEdge.Schoolmgmt.InternAssignment.Repository.CourseRepository;
 import com.healthEdge.Schoolmgmt.InternAssignment.Repository.OffersPKRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +14,7 @@ import java.util.Optional;
 
 public abstract class CourseDaoImpl implements CourseRepository{
 
+    @Autowired
     CourseRepository courseRepository;
     public Collection<Course> getAllCourses() {
         return courseRepository.findAll();

@@ -6,6 +6,7 @@ import com.healthEdge.Schoolmgmt.InternAssignment.Entity.StudentStudentContactPK
 import com.healthEdge.Schoolmgmt.InternAssignment.Repository.StudentContactPKRepository;
 import com.healthEdge.Schoolmgmt.InternAssignment.Repository.StudentContactRepository;
 import com.healthEdge.Schoolmgmt.InternAssignment.Repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 public abstract class StudentDaoImpl implements StudentRepository
 {
+    @Autowired
     StudentRepository studentRepository;
     public Collection<Student> getAllStudents() {
         return studentRepository.findAll();
