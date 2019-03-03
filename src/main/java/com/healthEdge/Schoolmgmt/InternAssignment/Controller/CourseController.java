@@ -22,8 +22,6 @@ public class CourseController {
     @RequestMapping(method= RequestMethod.GET)
     public Collection<Course> getAllCourses(){
 
-        this.courseService.getAllCourses();
-
        return this.courseDao.getAllCourses();
 
     }

@@ -18,4 +18,7 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
     void deleteByCredits(int courseCredit);
 
 
+
+
+
 }
