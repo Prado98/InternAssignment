@@ -1,5 +1,6 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.Controller;
 
+import com.healthEdge.Schoolmgmt.InternAssignment.DaoImpl.StudentDaoImpl;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.Course;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.Collection;
 @RequestMapping(/Student);
 public class StudentController {
     @Autowired
-    private StudentDao studentDao;
+    private StudentDaoImpl studentDao;
     @RequestMapping(method= RequestMethod.GET)
     public Collection<Student> getAllStudents(){
         this.studentDao.getAllStudents();
@@ -51,11 +52,15 @@ public class StudentController {
     public DeleteStudentByName(@PathParam("studentLname") String studentFname){
         this.studentDao.RemoveStudentByFName(studentFname);
     }
-    @RequestMapping(value="/{courseCredit}",method = RequestMethod.DELETE)
-    public void DeleteCourseByCourse(@PathVariable=("courseCredit") int courseCredit){
-        this.studentDao.RemoveCourseByCredits(courseCredit);
+    @RequestMapping(value="/{studentAddress}",method = RequestMethod.DELETE)
+    public void DeleteStudentByAddress(@PathVariable=("studentAddress") int studentAddress){
+        this.studentDao.RemoveStudentByAddress(studentAddress);
     }
-    @RequestMapping(method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)//update
+    @RequestMapping(value="/{studentGender}",method=RequestMethod.DELETE)
+    public DeleteStudentsByGender(@PathParam("studentGender") String studentGender){
+        return this.studentDao.RemoveStudentByGender(studentGender);
+    }
+    @RequestMapping(method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void UpdateStudnetById(@RequestBody Student student)
     {
         this.studentDao.updateStudent(student);

@@ -1,6 +1,7 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.Controller;
 
 
+import com.healthEdge.Schoolmgmt.InternAssignment.DaoImpl.SchoolDaoImpl;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.School;
 import com.sun.org.apache.xpath.internal.operations.String;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.Collection;
 @RequestMapping("/School")
 public class SchoolController {
     @Autowired
-    private SchoolDao schoolDao;
+    private SchoolDaoImpl schoolDao;
     @RequestMapping(method = @RequestMethod.GET)
     public Collection<School> getAllSchool() {
         return this.schoolDao.getAllSchool();
@@ -35,7 +36,7 @@ public class SchoolController {
         return this.schoolDao.getSchoolByAddress(schoolAddress);
     }
     @RequestMapping(value="/{schoolEmail}",method = RequestMethod.GET)
-    public School getSchoolByEmail(@PathParam("schoolEmail") String schoolEmail)
+    public School getSchoolsByEmail(@PathParam("schoolEmail") String schoolEmail)
     {
         return this.schoolDao.getSchoolByEmail(schoolEmail);
     }
