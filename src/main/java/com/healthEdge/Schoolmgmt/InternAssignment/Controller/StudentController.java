@@ -12,32 +12,32 @@ import java.util.Collection;
 
 
 @RestController
-@RequestMapping(/Student);
+@RequestMapping("/Student")
 public class StudentController {
     @Autowired
     private StudentDaoImpl studentDao;
     @RequestMapping(method= RequestMethod.GET)
     public Collection<Student> getAllStudents(){
-        this.studentDao.getAllStudents();
+       return this.studentDao.getAllStudents();
     }
     @RequestMapping(value="/{studentId}",method=RequestMethod.GET)
-    public getCourseById(@PathVariable=("studentId") int studentId){
+    public  Student getStudentsById(@PathVariable("studentId") int studentId){
         return this.studentDao.getStudentsById(studentId);
     }
     @RequestMapping(value="/{studentFname}",method=RequestMethod.GET)
-    public getStudentsFName(@PathParam("studentFname") String studentFname){
-        return this.studentDaos.getStudentFname(studentFname);
+    public Student getStudentsFName(@PathParam("studentFname") String studentFname){
+        return this.studentDao.getStudentFname(studentFname);
     }
     @RequestMapping(value="/{studentLname}",method=RequestMethod.GET)
-    public getStudentsLName(@PathParam("studentLname") String studentLname){
+    public Student getStudentsLName(@PathParam("studentLname") String studentLname){
         return this.studentDao.getStudentLname(studentLname);
     }
     @RequestMapping(value="/{studentAddress}",method=RequestMethod.GET)
-    public getStudentsAddress(@PathParam("studentAddress") String studentAddress){
+    public Student getStudentsAddress(@PathParam("studentAddress") String studentAddress){
         return this.studentDao.getStudentAddress(studentAddress);
     }
     @RequestMapping(value="/{studentGender}",method=RequestMethod.GET)
-    public getStudentsByGender(@PathParam("studentGender") String studentGender){
+    public Student getStudentsByGender(@PathParam("studentGender") String studentGender){
         return this.studentDao.getStudentByGender(studentGender);
     }
     @RequestMapping(value="/{studentId}",method=RequestMethod.DELETE)
@@ -45,15 +45,15 @@ public class StudentController {
         this.studentDao.RemoveStudentById(studentId);
     }
     @RequestMapping(value="/{studentFname}",method=RequestMethod.DELETE)
-    public DeleteStudentByName(@PathParam("studentFname") String studentFname){
+    public void DeleteStudentByName(@PathParam("studentFname") String studentFname){
         this.studentDao.RemoveStudentByFName(studentFname);
     }
     @RequestMapping(value="/{studentLname}",method=RequestMethod.DELETE)
-    public DeleteStudentByName(@PathParam("studentLname") String studentFname){
+    public void DeleteStudentByName(@PathParam("studentLname") String studentFname){
         this.studentDao.RemoveStudentByFName(studentFname);
     }
     @RequestMapping(value="/{courseCredit}",method = RequestMethod.DELETE)
-    public void DeleteCourseByCourse(@PathVariable=("courseCredit") int courseCredit){
+    public void DeleteCourseByCourse(@PathVariable("courseCredit") int courseCredit){
         this.studentDao.RemoveCourseByCredits(courseCredit);
     }
     @RequestMapping(method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)//update
