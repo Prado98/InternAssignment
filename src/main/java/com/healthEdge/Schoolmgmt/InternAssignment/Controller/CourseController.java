@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.websocket.server.PathParam;
 import java.util.Collection;
 
+@SuppressWarnings("ALL")
 @RestController
 @RequestMapping("/Course")
 public class CourseController {
@@ -22,29 +23,33 @@ public class CourseController {
     public Collection<Course> getAllCourses(){
 
         this.courseService.getAllCourses();
+
+       return this.courseDao.getAllCourses();
+
     }
+
     @RequestMapping(value="/{courseId}",method=RequestMethod.GET)
-    public getCourseById(@PathVariable=("courseId") int courseId){
+    public Course getCourseById(@PathVariable("courseId") int courseId){
         return this.courseDao.getCourseById(courseId);
     }
     @RequestMapping(value="/{courseName}",method=RequestMethod.GET)
-    public getCourseByName(@PathParam("courseName") String courseName){
+    public Course getCourseByName(@PathParam("courseName") String courseName){
         return this.courseDao.getCourseByName(courseName);
     }
     @RequestMapping(value="/{CourseCredit}",method=RequestMethod.GET)
-    public getCourseByName(@PathVariable=("courseCredit") int courseCredit){
+    public Course getCourseByName(@PathVariable("courseCredit") int courseCredit){
         return this.courseDao.getCourseByCredit(courseCredit);
     }
     @RequestMapping(value="/{courseId}",method=RequestMethod.DELETE)
-    public void DeleteCourseById(@PathVariable=("courseId") int courseId){
+    public void DeleteCourseById(@PathVariable("courseId") int courseId){
         this.courseDao.RemoveCourseById(courseId);
     }
     @RequestMapping(value="/{courseName}",method=RequestMethod.DELETE)
-    public DeleteCourseByName(@PathParam("courseName") String courseName){
+    public void DeleteCourseByName(@PathParam("courseName") String courseName){
          this.courseDao.RemoveCourseByName(courseName);
     }
     @RequestMapping(value="/{courseCredit}",method = RequestMethod.DELETE)
-    public void DeleteCourseByCourse(@PathVariable=("courseCredit") int courseCredit){
+    public void DeleteCourseByCourse(@PathVariable("courseCredit") int courseCredit){
         this.courseDao.RemoveCourseByCredits(courseCredit);
     }
     @RequestMapping(method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)//update
