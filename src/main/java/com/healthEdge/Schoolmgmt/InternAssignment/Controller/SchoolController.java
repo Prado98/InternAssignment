@@ -14,56 +14,56 @@ import java.util.Collection;
 @RequestMapping("/School")
 public class SchoolController {
     @Autowired
-    private SchoolServices schoolService;
+    private SchoolDao schoolDao;
     @RequestMapping(method = @RequestMethod.GET)
     public Collection<School> getAllSchool() {
-        return this.schoolService.getAllSchool();
+        return this.schoolDao.getAllSchool();
     }
     @RequestMapping(value="/{schoolId}",method = RequestMethod.GET)
     public School getSchoolById(@PathVariable=("schoolId") int schoolId)
     {
-       return this.schoolService.getSchoolById(schoolId);
+       return this.schoolDao.getSchoolById(schoolId);
     }
     @RequestMapping(value="/{schoolName}",method = RequestMethod.GET)
     public School getSchoolByName(@PathParam("schoolName") String schoolName)
     {
-        return this.schoolService.getSchoolByName(schoolName);
+        return this.schoolDao.getSchoolByName(schoolName);
     }
     @RequestMapping(value="/{schoolAddress}",method = RequestMethod.GET)
     public School getSchoolByAddress(@PathParam("schoolAddress") String schoolAddress)
     {
-        return this.schoolService.getSchoolByAddress(schoolAddress);
+        return this.schoolDao.getSchoolByAddress(schoolAddress);
     }
     @RequestMapping(value="/{schoolEmail}",method = RequestMethod.GET)
     public School getSchoolByEmail(@PathParam("schoolEmail") String schoolEmail)
     {
-        return this.schoolService.getSchoolByEmail(schoolEmail);
+        return this.schoolDao.getSchoolByEmail(schoolEmail);
     }
     @RequestMapping(value= "/{School_id}", method=@RequestMethod.DELETE)
     public void DeleteSchoolById(@PathVariable=("School_id") int schoolId)
     {
-        this.schoolService.RemoveSchoolById(schoolId);
+        this.schoolDao.RemoveSchoolById(schoolId);
     }
     @RequestMapping(value= "/{schoolName}", method=@RequestMethod.DELETE)
     public void DeleteSchoolByName(@PathParam("schoolName") String schoolName){
-        this.schoolService.RemoveSchoolByName(schoolName);
+        this.schoolDao.RemoveSchoolByName(schoolName);
     }
     @RequestMapping(value="/{schoolAddress}", method= RequestMethod.DELETE)
     public void DeleteSchoolByAddress(@PathParam("schoolAddress") String schoolAddress){
-        this.schoolService.RemoveSchoolByAddress(schoolAddress);
+        this.schoolDao.RemoveSchoolByAddress(schoolAddress);
     }
     @RequestMapping(value="/{schoolEmail}",method=RequestMethod.DELETE)
     public void DeleteSchoolByEmail(@PathParam("schoolEmail") String schoolEmail){
-        this.schoolService.RemoveSchoolByEmail(schoolEmail);
+        this.schoolDao.RemoveSchoolByEmail(schoolEmail);
     }
     @RequestMapping(method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)//update
     public void UpdateSchoolById(@RequestBody School school)
     {
-        this.schoolService.updateSchool(school);
+        this.schoolDao.updateSchool(school);
     }
     @RequestMapping(method=RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void InsertSchool(@RequestBody School school)
     {
-        this.schoolService.insertSchool(school);
+        this.schoolDao.insertSchool(school);
     }
 }
