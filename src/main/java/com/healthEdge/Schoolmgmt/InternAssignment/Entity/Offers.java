@@ -1,15 +1,14 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 
 @Entity
 @IdClass(OffersPK.class)
 public class Offers {
     private Integer schoolId;
     private Integer courseId;
+    private School schoolBySchoolId;
+    private Course courseByCourseId;
 
     @Id
     @Column(name = "School_id", nullable = false)
@@ -49,5 +48,25 @@ public class Offers {
         int result = schoolId != null ? schoolId.hashCode() : 0;
         result = 31 * result + (courseId != null ? courseId.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "School_id", referencedColumnName = "School_id", nullable = false)
+    public School getSchoolBySchoolId() {
+        return schoolBySchoolId;
+    }
+
+    public void setSchoolBySchoolId(School schoolBySchoolId) {
+        this.schoolBySchoolId = schoolBySchoolId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "Course_id", referencedColumnName = "Course_id", nullable = false)
+    public Course getCourseByCourseId() {
+        return courseByCourseId;
+    }
+
+    public void setCourseByCourseId(Course courseByCourseId) {
+        this.courseByCourseId = courseByCourseId;
     }
 }

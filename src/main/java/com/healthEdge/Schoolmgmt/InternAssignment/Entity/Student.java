@@ -1,9 +1,7 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.Entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Student {
@@ -12,6 +10,9 @@ public class Student {
     private String studentLname;
     private String studentAddress;
     private String studentGender;
+    private Integer schoolId;
+    private School schoolBySchoolId;
+    private Collection<StudentStudentContact> studentStudentContactsByStudentId;
 
     @Id
     @Column(name = "Student_id", nullable = false)
@@ -63,6 +64,16 @@ public class Student {
         this.studentGender = studentGender;
     }
 
+    @Basic
+    @Column(name = "School_id", nullable = true)
+    public Integer getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,6 +90,7 @@ public class Student {
             return false;
         if (studentGender != null ? !studentGender.equals(student.studentGender) : student.studentGender != null)
             return false;
+        if (schoolId != null ? !schoolId.equals(student.schoolId) : student.schoolId != null) return false;
 
         return true;
     }
@@ -90,6 +102,26 @@ public class Student {
         result = 31 * result + (studentLname != null ? studentLname.hashCode() : 0);
         result = 31 * result + (studentAddress != null ? studentAddress.hashCode() : 0);
         result = 31 * result + (studentGender != null ? studentGender.hashCode() : 0);
+        result = 31 * result + (schoolId != null ? schoolId.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "School_id", referencedColumnName = "School_id")
+    public School getSchoolBySchoolId() {
+        return schoolBySchoolId;
+    }
+
+    public void setSchoolBySchoolId(School schoolBySchoolId) {
+        this.schoolBySchoolId = schoolBySchoolId;
+    }
+
+    @OneToMany(mappedBy = "studentByStudentId")
+    public Collection<StudentStudentContact> getStudentStudentContactsByStudentId() {
+        return studentStudentContactsByStudentId;
+    }
+
+    public void setStudentStudentContactsByStudentId(Collection<StudentStudentContact> studentStudentContactsByStudentId) {
+        this.studentStudentContactsByStudentId = studentStudentContactsByStudentId;
     }
 }

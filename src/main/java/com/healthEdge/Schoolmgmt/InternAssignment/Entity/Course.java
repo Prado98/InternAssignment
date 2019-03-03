@@ -1,15 +1,14 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.Entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Course {
     private Integer courseId;
     private String courseName;
     private Integer courseCredit;
+    private Collection<Offers> offersByCourseId;
 
     @Id
     @Column(name = "Course_id", nullable = false)
@@ -62,5 +61,14 @@ public class Course {
         result = 31 * result + (courseName != null ? courseName.hashCode() : 0);
         result = 31 * result + (courseCredit != null ? courseCredit.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "courseByCourseId")
+    public Collection<Offers> getOffersByCourseId() {
+        return offersByCourseId;
+    }
+
+    public void setOffersByCourseId(Collection<Offers> offersByCourseId) {
+        this.offersByCourseId = offersByCourseId;
     }
 }

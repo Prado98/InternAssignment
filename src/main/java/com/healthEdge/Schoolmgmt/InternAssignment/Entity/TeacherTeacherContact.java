@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class TeacherTeacherContact {
     private Integer teacherContact;
     private Integer teacherId;
+    private Teacher teacherByTeacherId;
 
     @Id
     @Column(name = "Teacher_contact", nullable = false)
@@ -48,5 +49,15 @@ public class TeacherTeacherContact {
         int result = teacherContact != null ? teacherContact.hashCode() : 0;
         result = 31 * result + (teacherId != null ? teacherId.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "Teacher_id", referencedColumnName = "Teacher_id", nullable = false)
+    public Teacher getTeacherByTeacherId() {
+        return teacherByTeacherId;
+    }
+
+    public void setTeacherByTeacherId(Teacher teacherByTeacherId) {
+        this.teacherByTeacherId = teacherByTeacherId;
     }
 }

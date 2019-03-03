@@ -1,9 +1,7 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.Entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class School {
@@ -11,6 +9,9 @@ public class School {
     private String schoolName;
     private String schoolAddress;
     private String schoolEmail;
+    private Collection<Offers> offersBySchoolId;
+    private Collection<Student> studentsBySchoolId;
+    private Collection<Teacher> teachersBySchoolId;
 
     @Id
     @Column(name = "School_id", nullable = false)
@@ -43,7 +44,7 @@ public class School {
     }
 
     @Basic
-    @Column(name = "School_email", nullable = true, length = 255)
+    @Column(name = "School_email", nullable = false, length = 255)
     public String getSchoolEmail() {
         return schoolEmail;
     }
@@ -75,5 +76,32 @@ public class School {
         result = 31 * result + (schoolAddress != null ? schoolAddress.hashCode() : 0);
         result = 31 * result + (schoolEmail != null ? schoolEmail.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "schoolBySchoolId")
+    public Collection<Offers> getOffersBySchoolId() {
+        return offersBySchoolId;
+    }
+
+    public void setOffersBySchoolId(Collection<Offers> offersBySchoolId) {
+        this.offersBySchoolId = offersBySchoolId;
+    }
+
+    @OneToMany(mappedBy = "schoolBySchoolId")
+    public Collection<Student> getStudentsBySchoolId() {
+        return studentsBySchoolId;
+    }
+
+    public void setStudentsBySchoolId(Collection<Student> studentsBySchoolId) {
+        this.studentsBySchoolId = studentsBySchoolId;
+    }
+
+    @OneToMany(mappedBy = "schoolBySchoolId")
+    public Collection<Teacher> getTeachersBySchoolId() {
+        return teachersBySchoolId;
+    }
+
+    public void setTeachersBySchoolId(Collection<Teacher> teachersBySchoolId) {
+        this.teachersBySchoolId = teachersBySchoolId;
     }
 }
