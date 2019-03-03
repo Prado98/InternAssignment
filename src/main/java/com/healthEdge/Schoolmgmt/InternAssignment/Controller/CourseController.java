@@ -18,7 +18,7 @@ public class CourseController {
     private CourseDaoImpl courseDao;
     @RequestMapping(method= RequestMethod.GET)
     public Collection<Course> getAllCourses(){
-        this.courseService.getAllCourses();
+        this.courseDao.getAllCourses();
     }
     @RequestMapping(value="/{courseId}",method=RequestMethod.GET)
     public getCourseById(@PathVariable=("courseId") int courseId){
