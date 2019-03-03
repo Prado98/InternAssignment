@@ -14,10 +14,13 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/Course")
 public class CourseController {
-    @Autowired
+
+
+
     private CourseDaoImpl courseDao;
     @RequestMapping(method= RequestMethod.GET)
     public Collection<Course> getAllCourses(){
+
         this.courseService.getAllCourses();
     }
     @RequestMapping(value="/{courseId}",method=RequestMethod.GET)

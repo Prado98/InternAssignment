@@ -11,7 +11,7 @@ import java.util.Collection;
 
 
 @RestController
-@RequestMapping(/Student);
+@RequestMapping("/Student");
 public class StudentController {
     @Autowired
     private StudentDao studentDao;
