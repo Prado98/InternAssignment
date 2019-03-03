@@ -40,6 +40,11 @@ public class CourseController {
     public DeleteCourseByName(@PathParam("courseName") String courseName){
          this.courseController.RemoveCourseByName(courseName);
     }
+    @RequestMapping(value="/{courseCredit}",method = RequestMethod.DELETE)
+    public void DeleteCourseByCourse(@PathVariable=("courseCredit") int courseCredit){
+        this.courseController.RemoveCourseByCredits(courseCredit);
+    }
+
 
 
 }
