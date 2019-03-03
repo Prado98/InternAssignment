@@ -18,7 +18,7 @@ public class CourseController {
     private CourseDaoImpl courseDao;
     @RequestMapping(method= RequestMethod.GET)
     public Collection<Course> getAllCourses(){
-        this.courseService.getAllCourses();
+        this.courseDao.getAllCourses();
     }
     @RequestMapping(value="/{courseId}",method=RequestMethod.GET)
     public getCourseById(@PathVariable=("courseId") int courseId){
@@ -38,7 +38,8 @@ public class CourseController {
     }
     @RequestMapping(value="/{courseName}",method=RequestMethod.DELETE)
     public DeleteCourseByName(@PathParam("courseName") String courseName){
-         this.courseDao.RemoveCourseByName(courseName);
+         this.courseDao.\\\\
+        ]RemoveCourseByName(courseName);
     }
     @RequestMapping(value="/{courseCredit}",method = RequestMethod.DELETE)
     public void DeleteCourseByCourse(@PathVariable=("courseCredit") int courseCredit){
