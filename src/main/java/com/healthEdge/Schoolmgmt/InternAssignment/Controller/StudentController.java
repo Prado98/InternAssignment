@@ -24,15 +24,19 @@ public class StudentController {
         return this.studentDao.getStudentsById(studentId);
     }
     @RequestMapping(value="/{studentFname}",method=RequestMethod.GET)
-    public getStudentFName(@PathParam("studentFname") String studentFname){
+    public getStudentsFName(@PathParam("studentFname") String studentFname){
         return this.studentDaos.getStudentFname(studentFname);
     }
     @RequestMapping(value="/{studentLname}",method=RequestMethod.GET)
-    public getStudentLName(@PathParam("studentLname") String studentLname){
+    public getStudentsLName(@PathParam("studentLname") String studentLname){
         return this.studentDao.getStudentLname(studentLname);
     }
+    @RequestMapping(value="/{studentAddress}",method=RequestMethod.GET)
+    public getStudentsAddress(@PathParam("studentAddress") String studentAddress){
+        return this.studentDao.getStudentAddress(studentAddress);
+    }
     @RequestMapping(value="/{studentGender}",method=RequestMethod.GET)
-    public getStudentByGender(@PathParam("studentGender") String studentGender){
+    public getStudentsByGender(@PathParam("studentGender") String studentGender){
         return this.studentDao.getStudentByGender(studentGender);
     }
     @RequestMapping(value="/{studentId}",method=RequestMethod.DELETE)
