@@ -26,7 +26,8 @@ public class SchoolController {
     {
        return this.schoolDao.getSchoolById(schoolId);
     }
-    @RequestMapping(value="/{schoolName}",method = RequestMethod.GET)
+    @RequestMapping(value="/{schoolName}",method
+            = RequestMethod.GET)
     public School getSchoolByName(@PathParam("schoolName") String schoolName)
     {
         return this.schoolDao.getSchoolByName(schoolName);
