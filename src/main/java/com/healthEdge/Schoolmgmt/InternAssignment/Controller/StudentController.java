@@ -42,15 +42,15 @@ public class StudentController {
         return this.studentDao.getStudentByGender(studentGender);
     }
     @RequestMapping(value="/{studentId}",method=RequestMethod.DELETE)
-    public void DeleteStudentById(@PathVariable=("studentId") int studentId){
+    public void DeleteStudentById(@PathVariable("studentId") int studentId){
         this.studentDao.RemoveStudentById(studentId);
     }
     @RequestMapping(value="/{studentFname}",method=RequestMethod.DELETE)
-    public void DeleteStudentByName(@PathParam("studentFname") String studentFname){
+    public void DeleteStudentByFName(@PathParam("studentFname") String studentFname){
         this.studentDao.RemoveStudentByFName(studentFname);
     }
     @RequestMapping(value="/{studentLname}",method=RequestMethod.DELETE)
-    public void DeleteStudentByName(@PathParam("studentLname") String studentFname){
+    public void DeleteStudentByLName(@PathParam("studentLname") String studentFname){
         this.studentDao.RemoveStudentByFName(studentFname);
     }
     @RequestMapping(value="/{courseCredit}",method = RequestMethod.DELETE)
