@@ -1,6 +1,7 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.Controller;
 
 
+import com.healthEdge.Schoolmgmt.InternAssignment.DaoImpl.CourseDaoImpl;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.Course;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.School;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.Collection;
 @RequestMapping("/Course")
 public class CourseController {
     @Autowired
-    private CourseDao courseDao;
+    private CourseDaoImpl courseDao;
     @RequestMapping(method= RequestMethod.GET)
     public Collection<Course> getAllCourses(){
         this.courseService.getAllCourses();
