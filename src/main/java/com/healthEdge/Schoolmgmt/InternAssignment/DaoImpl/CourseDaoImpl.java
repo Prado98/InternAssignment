@@ -1,12 +1,10 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.DaoImpl;
-
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.Course;
 import com.healthEdge.Schoolmgmt.InternAssignment.Repository.CourseRepository;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;

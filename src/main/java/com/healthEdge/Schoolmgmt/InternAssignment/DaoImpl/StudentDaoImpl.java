@@ -17,22 +17,26 @@ import java.util.Optional;
 
 public abstract class StudentDaoImpl implements StudentRepository
 {
+    StudentRepository studentRepository;
     public Collection<Student> getAllStudents() {
-        return null;
+        return studentRepository.findAll();
     }
 
     public Student getStudentsById(int studentId) {
-        return null;
+        return studentRepository.findAllById(studentId);
     }
 
     public Student getStudentFname(String studentFname) {
-        return null;
+        return studentRepository.findAllByFName(studentFname);
     }
 
     public void insertStudent(Student student) {
+
+        studentRepository.save(student);
     }
 
     public void updateStudent(Student student) {
+        studentRepository.save(student);
     }
 
     public void RemoveCourseByCredits(int courseCredit) {
@@ -46,10 +50,11 @@ public abstract class StudentDaoImpl implements StudentRepository
     }
 
     public void RemoveStudentById(int studentId) {
+        studentRepository.deleteById(studentId);
     }
 
     public Student getStudentByGender(String studentGender) {
-        return null;
+        return studentRepository.findAllByGender(studentGender);
     }
 
     public Student getStudentAddress(String studentAddress) {
