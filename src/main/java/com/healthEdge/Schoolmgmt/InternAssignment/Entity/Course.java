@@ -3,6 +3,7 @@ package com.healthEdge.Schoolmgmt.InternAssignment.Entity;
 import javax.persistence.*;
 import java.util.Collection;
 
+//@NamedQuery(name="Course.findAll",query = "select c from course c")
 @Entity
 public class Course {
     private Integer courseId;
