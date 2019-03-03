@@ -1,6 +1,4 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.Controller;
-
-
 import com.healthEdge.Schoolmgmt.InternAssignment.DaoImpl.CourseDaoImpl;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.Course;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.School;

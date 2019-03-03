@@ -12,7 +12,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class CourseDaoImpl implements CourseRepository {
+
+public abstract class CourseDaoImpl implements CourseRepository{
 
     CourseRepository courseRepository;
     public Collection<Course> getAllCourses() {
