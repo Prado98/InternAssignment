@@ -17,7 +17,7 @@ import java.util.Collection;
 public class SchoolController {
     @Autowired
     private SchoolDaoImpl schoolDao;
-    @RequestMapping(method = @RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public Collection<School> getAllSchool() {
         return this.schoolDao.getAllSchool();
     }
