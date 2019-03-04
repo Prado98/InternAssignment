@@ -1,5 +1,16 @@
 package com.healthEdge.Schoolmgmt.InternAssignment.DaoImpl;
 
+
+import com.healthEdge.Schoolmgmt.InternAssignment.Entity.Student;
+import com.healthEdge.Schoolmgmt.InternAssignment.Repository.StudentContactPKRepository;
+import com.healthEdge.Schoolmgmt.InternAssignment.Repository.StudentContactRepository;
+import com.healthEdge.Schoolmgmt.InternAssignment.Repository.StudentRepository;
+
+import java.util.Collection;
+
+public class StudentDaoImpl {
+
+
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.Student;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.StudentStudentContact;
 import com.healthEdge.Schoolmgmt.InternAssignment.Entity.StudentStudentContactPK;
@@ -16,6 +27,8 @@ import java.util.List;
 import java.util.Optional;
 
 public abstract class StudentDaoImpl implements StudentRepository
+
+
 {
     StudentRepository studentRepository;
     public Collection<Student> getAllStudents() {

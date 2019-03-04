@@ -6,6 +6,7 @@ import com.sun.org.apache.xpath.internal.operations.String;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SchoolRepository extends JpaRepository<School, Integer> {
+
     School findAllById(int schoolId);
 
     School findAllByName(String schoolName);
@@ -22,4 +23,9 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     void deleteByAddress(String schoolAddress);
 
     void deleteByEmail(String schoolEmail);
+
+    void deleteByEmail(String schoolEmail);
+    static School findAllByAddress(String schoolAddress) {
+    }
+
 }
